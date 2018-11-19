@@ -1,4 +1,4 @@
-var randomletter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 var wins = 0;
 var losses = 0;
@@ -14,15 +14,15 @@ var computerOutput;
 
 function newGame() {
     guessesLeft = 9;
-    lettersGuesses = "";
-    computerOutput =computerChoices[Math.floor(Math.random() * computerChoises.length)];
+    lettersGuessed = "";
+    computerOutput =computerChoices[Math.floor(Math.random() * computerChoices.length)];
     updateText();
 
 }
 
 document.onkeyup = function(event) {
 
-    lettersGuesses = letersGuessed + "  " + event.key;
+    lettersGuessed = lettersGuessed + "  " + event.key;
 
         if (event.key === computerOutput){
             wins++;
@@ -40,9 +40,10 @@ document.onkeyup = function(event) {
 function updateText (){
     winsText.textContent = "Wins" + wins;
     lossesText.textContent = "Losses" + losses;
-    guessesLeftText.textContent = "Guesses Left" + guessesleft;
+    guessesLeftText.textContent = "Guesses Left" + guessesLeft;
     lettersGuessedText.textContent = "Letters Guessed" + lettersGuessed;
 }
+
 newGame();
 
 
